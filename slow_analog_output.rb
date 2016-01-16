@@ -1,10 +1,11 @@
 require 'socket'
+require './rp_socket'
 
-socket = TCPSocket.open '192.168.0.5', 5000
-socket.puts "ANALOG:PIN AOUT0, 0.10\r"
-socket.puts "ANALOG:PIN AOUT1, 0.20\r"
-socket.puts "ANALOG:PIN AOUT2, 0.30\r"
-socket.puts "ANALOG:PIN AOUT3, 0.40\r"
+rp = RP.new
+rp.send "ANALOG:PIN AOUT0, 0.10"
+rp.send "ANALOG:PIN AOUT1, 0.20"
+rp.send "ANALOG:PIN AOUT2, 0.30"
+rp.send "ANALOG:PIN AOUT3, 0.40"
 sleep 5
-socket.close
+rp.close
 puts 'closed'
