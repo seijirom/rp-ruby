@@ -1,6 +1,6 @@
 class RP
-  def initialize
-    @socket = TCPSocket.open '192.168.0.5', 5000
+  def initialize ip
+    @socket = TCPSocket.open ip, 5000
   end
 
   def send command
